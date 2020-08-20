@@ -16,7 +16,7 @@ const TodoItems = () => {
     state.length === 0 ? (
       <h2>0 todo</h2>
     ) : (
-      <h3 className="bg-secondary m-2 ">Total Pending: {state.length}</h3>
+      <h3 className="bg-info m-4 p-4 ">Total Pending: {state.length}</h3>
     );
 
   const addMember = (newMember) => {
@@ -59,10 +59,11 @@ const TodoItems = () => {
       <div>{heading}</div>
       {state.map((item, index) => {
         return (
-          <div>
+          <div className="dk bg-info">
             {!item.completed ? (
               <div>
                 <h1
+                  className="list bg-success m-10 p-4"
                   onClick={() =>
                     dispatch({ type: "COMPLETE", payload: item.id })
                   }
@@ -82,6 +83,12 @@ const TodoItems = () => {
                     **
                     {item.item}
                     **
+                    <button
+                      className={"button btn-danger p-1 m-1 float-right"}
+                      onClick={() => dispatch({ type: "REMOVE_COMPLETED" })}
+                    >
+                      Remove
+                    </button>
                   </span>
                 </h1>
               </div>
