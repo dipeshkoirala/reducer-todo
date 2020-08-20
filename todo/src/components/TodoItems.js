@@ -27,7 +27,7 @@ const TodoItems = () => {
     <div>
       <div>
         <input
-          className="todo-input"
+          className="todo-input p-2 m-2 float-left "
           type="text"
           name="newToDo"
           value={newToDo}
@@ -35,7 +35,7 @@ const TodoItems = () => {
           placeholder={state.item}
         />
         <button
-          className={"button btn-success p-1 m-1"}
+          className={"button btn-success p-1 m-1 float-left"}
           onClick={() => {
             dispatch(addMember());
           }}
@@ -43,7 +43,7 @@ const TodoItems = () => {
           Add ToDo
         </button>
         <button
-          className={"button btn-danger p-1 m-1"}
+          className={"button btn-danger p-1 m-1 "}
           onClick={() => dispatch({ type: "REMOVE_COMPLETED" })}
         >
           Remove
@@ -63,12 +63,14 @@ const TodoItems = () => {
             {!item.completed ? (
               <div>
                 <h1
-                  className="list bg-success m-10 p-4"
+                  className="list bg-success m-10 p-4 "
                   onClick={() =>
                     dispatch({ type: "COMPLETE", payload: item.id })
                   }
                 >
-                  <span>({index + 1})</span> {item.item}
+                  <span>
+                    {index + 1}: {item.item}
+                  </span>
                 </h1>
               </div>
             ) : (
@@ -93,6 +95,11 @@ const TodoItems = () => {
                 </h1>
               </div>
             )}
+            {/* <input
+              className="check m-2 p-4 float-right"
+              type="checkbox"
+              
+            ></input> */}
           </div>
         );
       })}
